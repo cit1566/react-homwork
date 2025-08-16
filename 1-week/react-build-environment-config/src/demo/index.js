@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
-import { getRandomMinMax, setAppRandomHue, setDocumentTitle } from './utils'
 import App from './app'
+import { getRandomMinMax, setAppRandomHue, setDocumentTitle } from './utils'
 
 const MIN = 50
 const MAX = 99

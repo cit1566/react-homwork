@@ -1,4 +1,4 @@
-import { Output, Logo, ShortcutInfo } from './components'
+import { Logo, Output, ShortcutInfo } from './components'
 import './app.css'
 
 export default function App(props) {
