@@ -56,3 +56,20 @@ bun add -d @trivago/prettier-plugin-sort-imports
 ```
 
 - `prettier-plugin-sort-import` 플러그인 설치
+
+## `.vscode` & `setting.json`
+
+- 확장프로그램 설치 및 setting.json 설정
+
+## ESLint 설치
+
+```
+bun add -d eslint @eslint/js globals eslint-plugin-react eslint-plugin-prettier
+```
+
+`bun add -d` : `devDependencies` 설치
+`eslint` : `eslint` 설치
+`@eslint/js` : ESlint에서 최신 JavaScript 문접을 지원하도록 기본 패키치 설치
+`globals` : 전역 객체를 ESLint가 인식하도록 도와주는 패키지
+`eslint-plugin-react` : React 프로젝트에서 JSX 문법, React 규칙을 검사할 수 있는 ESLint 플러그인
+`eslint-plugin-prettier` : Prettier와 ESLint를 연동해, 코드 스타일을 ESLint 규칙으로도 체크할 수 있게 하는 플러그인
