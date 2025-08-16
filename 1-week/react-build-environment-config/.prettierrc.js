@@ -1,5 +1,5 @@
 // .prettierrc.js
-module.exports = {
+export default {
   printWidth: 80,              // 한 줄 최대 길이
   singleQuote: true,           // 문자열 작은 따옴표
   semi: false,                 // 세미콜론 없음
@@ -12,5 +12,19 @@ module.exports = {
   bracketSameLine: false,      // JSX 닫는 괄호 줄바꿈
   bracketSpacing: true,        // 중괄호 안 공백
   htmlWhitespaceSensitivity: 'css', // HTML 공백 → CSS 규칙
-  objectWrap: 'preserve'       // 객체 줄바꿈 원본 유지
+
+  // Prettier 공식 옵션에는 없음 → 제거
+  // objectWrap: 'preserve',
+
+  plugins: ["@trivago/prettier-plugin-sort-imports"],
+
+  importOrder: [
+    "^react",
+    "^[a-zA-Z]",
+    "^@/(.*)$",
+    "^\\.(?!.*\\.css$).*", // lookbehind 제거, Node.js 호환
+    "\\.css$"
+  ],
+  importOrderSeparation: false,
+  importOrderSortSpecifiers: true
 }

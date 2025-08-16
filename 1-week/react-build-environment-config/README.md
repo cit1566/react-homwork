@@ -41,5 +41,10 @@ module.exports = {
   htmlWhitespaceSensitivity: 'css', // HTML 공백 → CSS 규칙
   objectWrap: 'preserve'       // 객체 줄바꿈 원본 유지
 }
-
 ```
+
+## import 정렬 설정
+```bash
+bun add -d @trivago/prettier-plugin-sort-imports
+```
+- `prettier-plugin-sort-import` 플러그인 설치
