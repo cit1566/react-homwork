@@ -3,39 +3,33 @@
 ## 폴더 구조
 
 .
-├── README.md
-├── bun.lock
-├── eslint.config.mjs
-├── index.html
-├── jsconfig.json
-├── package.json
-├── src
-│ ├── app.jsx
-│ ├── main.jsx
-│ ├── components
-│ │ ├── index.js
-│ │ ├── svg
-│ │ │ ├── svgfunction.jsx
-│ │ │ └── spinner
+src
+├── app.jsx
+├── components
+│ ├── index.js
+│ ├── svg
+│ │ ├── spinner
 │ │ │ ├── spinner.css
 │ │ │ └── spinner.jsx
-│ │ └── uplode-button
-│ │ ├── uploadBtn.css
-│ │ └── uploadBtn.jsx
-│ ├── images
-│ │ ├── check-mark.svg
-│ │ ├── cross.svg
-│ │ ├── not-allowed.svg
-│ │ ├── react.svg
-│ │ ├── spinner-animate.svg
-│ │ └── up-arrow.svg
-│ ├── styles
-│ │ └── index.css
-│ └── utils
-│ ├── selectPath.js
-│ ├── svg.js
-│ ├── uploadBtnTypeFunc.js
-│ └── utils.js
+│ │ └── svgfunction.jsx
+│ └── uplode-button
+│ ├── uploadBtn.css
+│ └── uploadBtn.jsx
+├── images
+│ ├── check-mark.svg
+│ ├── cross.svg
+│ ├── not-allowed.svg
+│ ├── react.svg
+│ ├── spinner-animate.svg
+│ └── up-arrow.svg
+├── main.jsx
+├── styles
+│ └── index.css
+└── utils
+├── selectPath.js
+├── svg.js
+├── uploadBtnTypeFunc.js
+└── utils.js
 
 ## main.jsx
 
