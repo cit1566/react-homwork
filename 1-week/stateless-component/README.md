@@ -1,8 +1,7 @@
 # Stateless 컴포넌트 제작
 
 ## 폴더 구조
-
-.
+```bash
 src
 ├── app.jsx
 ├── components
@@ -30,6 +29,7 @@ src
 ├── svg.js
 ├── uploadBtnTypeFunc.js
 └── utils.js
+```
 
 ## main.jsx
 
