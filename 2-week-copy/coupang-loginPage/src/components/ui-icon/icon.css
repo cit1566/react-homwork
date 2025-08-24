@@ -1,0 +1,23 @@
+.ui-icon-box {
+  /* margin-left: 10px; */
+  background: white;
+  width: 45px;
+  height: 50px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  position: relative;
+  cursor: pointer;
+
+  &.border {
+    border-block: 1.2px solid #cccccc;
+    border-left: 1.2px solid #cccccc;
+    border-right: 0.3px solid #cccccc;
+  }
+
+  svg {
+    position: absolute;
+  }
+}

@@ -1,0 +1,28 @@
+nav {
+  /* background: green; */
+  margin: 2px;
+  display: flex;
+  justify-content: space-evenly;
+
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border: 1px solid black;
+    background: #cccccc;
+    border-radius: 3px;
+  }
+}
+
+.sr-only {
+  position: absolute; /* 문서 흐름에서 제거 */
+  width: 1px; /* 너무 작게 */
+  height: 1px;
+  padding: 0;
+  margin: -1px; /* 화면 밖으로 밀어내기 */
+  overflow: hidden; /* 잘린 부분 숨기기 */
+  clip: rect(0, 0, 0, 0); /* 옛날 브라우저 지원 */
+  clip-path: inset(50%); /* 최신 브라우저 지원 */
+  border: 0;
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
