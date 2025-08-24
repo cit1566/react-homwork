@@ -1,0 +1,44 @@
+.form-button {
+  --color-blue: #0074e9;
+
+  max-width: 575px;
+  min-width: 342px;
+  height: 53px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  margin-top: 2px;
+  &:active {
+    color: rgb(180, 180, 180);
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  &.primary {
+    background: var(--color-blue);
+    color: white;
+
+    &:disabled {
+      background: #97aabd;
+      color: #d4e0ed;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+
+  &.secondary {
+    background: white;
+    color: var(--color-blue);
+
+    &:disabled {
+      background: #dfdfdf;
+      color: #97aabd;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+}
