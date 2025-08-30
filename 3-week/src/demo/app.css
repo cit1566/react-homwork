@@ -9,13 +9,11 @@ body {
   align-items: center;
   background: var(--background-color);
   color: var(--color);
-  font:
-    1rem/1.5 'Spoqa Han Sans Neo',
-    sans-serif;
+  font: 1rem/1.5 'Spoqa Han Sans Neo', sans-serif;
 }
 
 .logo {
-  --top: 7dvh;
+  --top: 10dvh;
   --size: 5dvh;
 
   position: fixed;
@@ -32,22 +30,20 @@ body {
 .output {
   user-select: none;
   cursor: inherit;
-  font-size: 30vh;
-  font-family: 'Spoqa Han Sans Neo';
+  font-size: 35vh;
   font-weight: 100;
   line-height: 1;
-
+  
   &.is-animate {
     animation: wiggle 600ms infinite alternate;
   }
 }
 
 .shortcut-info {
-  --bottom: 7vh;
   position: fixed;
   left: 0;
   right: 0;
-  bottom: var(--bottom);
+  bottom: 60px;
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: center;

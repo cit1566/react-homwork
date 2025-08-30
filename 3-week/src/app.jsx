@@ -1,10 +1,29 @@
-import RandomCountUp from './demo/app'
+import { useState } from 'react'
+import UserForm from './components/form/form'
+import ShowProfileBox from './components/user/user-profile'
+// import RandomCountUp from './demo/app'
+
+import './styles/profil-card.css'
 
 export default function App() {
   return (
-    <section>
-      <h1 className="sr-only">랜덤 카운트 업</h1>
-      <RandomCountUp />
+    <section className="profile-card-container">
+      <h1>Profil Card</h1>
+      <Container></Container>
     </section>
+  )
+}
+
+function Container() {
+  const [input, setInput] = useState(null)
+
+  return (
+    <div>
+      <UserForm setInput={setInput}></UserForm>
+      <p className="description">
+        사용자의 이름을 검색하고 사용자의 정보를 확인하세요
+      </p>
+      <ShowProfileBox></ShowProfileBox>
+    </div>
   )
 }

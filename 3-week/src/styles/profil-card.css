@@ -1,0 +1,28 @@
+.profile-card-container {
+  background: #ddf4e7;
+  height: max-content;
+  h1 {
+    font-size: 50px;
+
+    padding: 20px;
+    margin: 0;
+    margin-inline: 50px;
+    border-bottom: 1px solid #26667f6b;
+  }
+  color: #26667f;
+
+  div {
+    margin-inline: 50px;
+    font-size: 20px;
+  }
+
+  .description {
+    margin-left: 30px;
+  }
+}
+
+/* @media (width >= 800px) {
+  .profile-card-container {
+    height: max-content;
+  }
+} */

@@ -1,0 +1,8 @@
+export { default as face1 } from '@/face/face-01.svg'
+export { default as face2 } from '@/face/face-02.svg'
+export { default as face3 } from '@/face/face-03.svg'
+export { default as face4 } from '@/face/face-04.svg'
+export { default as face5 } from '@/face/face-05.svg'
+export { default as face6 } from '@/face/face-06.svg'
+export { default as face7 } from '@/face/face-07.svg'
+export { default as face8 } from '@/face/face-08.svg'

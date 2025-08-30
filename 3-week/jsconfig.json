@@ -1,10 +1,26 @@
 {
   "compilerOptions": {
+    // JSX 문법 지원
     "jsx": "react-jsx",
+
+    // 자바스크립트 코드에서도 타입체크 가능
     "checkJs": true,
+
+    // 최신 문법 지원
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
+
+    // JSON 파일 import 허용
+    "resolveJsonModule": true,
+
+    // baseUrl을 프로젝트 루트 기준으로 설정
+    "baseUrl": ".",
+
+    // 경로 alias
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
