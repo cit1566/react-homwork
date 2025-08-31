@@ -4,7 +4,7 @@ import randomNum from '@/utils/random'
 import wait from '@/utils/wait'
 import './user-detail.css'
 
-function UserDetail() {
+export default function UserDetail() {
   const { id } = useParams()
   const [loadings, setLoadings] = useState(false)
   const [error, setError] = useState(null)
@@ -95,8 +95,7 @@ function UserDetail() {
           </li>
         </ul>
       </div>
+      <a href="http://localhost:3000">뒤로 가기</a>
     </div>
   )
 }
-
-export default UserDetail

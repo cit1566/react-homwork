@@ -19,7 +19,7 @@
     margin-right: 20px;
   }
 
-  span {
+  button {
     display: inline-block;
     background: rgba(255, 255, 255, 0.522);
     border-block: 1px solid #26667f87;
@@ -32,7 +32,7 @@
       border 0.3s ease-in-out;
     display: flex;
     align-items: center;
-
+    border-right: none;
     svg {
       margin-inline: 5px;
       min-width: 80%;
@@ -60,7 +60,7 @@
       border-right: 1px solid #26667f;
       outline: none;
 
-      .form-box:has(&:focus) span {
+      .form-box:has(&:focus) button {
         background: white;
         border-block: 1px solid #26667f;
         border-left: 1px solid #26667f;

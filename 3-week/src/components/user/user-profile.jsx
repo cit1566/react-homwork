@@ -143,8 +143,8 @@ export function UserProfile({
   role,
 }) {
   return (
-    <li className="user-profile">
-      <Link to={`/user/${id}`} key={id} title="moer show">
+    <li className="user-profile" aria-label={firstName + ' ' + lastName}>
+      <Link to={`/user/${id}`} key={id} title="show moer">
         <img src={image} alt={firstName + ' ' + lastName} />
         <p className="user-name">{firstName + ' ' + lastName}</p>
         <p className="user-email">{email}</p>
