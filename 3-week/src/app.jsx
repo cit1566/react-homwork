@@ -16,14 +16,14 @@ export default function App() {
 
 function Container() {
   const [input, setInput] = useState(null)
-
+  console.log(input)
   return (
     <div>
       <UserForm setInput={setInput}></UserForm>
       <p className="description">
         사용자의 이름을 검색하고 사용자의 정보를 확인하세요
       </p>
-      <ShowProfileBox></ShowProfileBox>
+      <ShowProfileBox input={input}></ShowProfileBox>
     </div>
   )
 }

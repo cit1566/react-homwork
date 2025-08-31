@@ -13,46 +13,95 @@ import {
 } from './fetch-users'
 import './user-box.css'
 
-export default function ShowProfileBox() {
+export default function ShowProfileBox({ input }) {
   const [userList, setUserList] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   useEffect(() => {
-    let ignor = false
+    console.log('로딩 완료!')
+
     setLoading(true)
-    fetch('https://dummyjson.com/users/?limit=8')
+
+    const abortController = new AbortController()
+
+    fetch('https://dummyjson.com/users/?limit=20', {
+      signal: abortController.signal,
+    })
       .then(async (res) => {
-        await wait(5)
+        await wait(0.9)
         if (res.ok) return res.json()
         if (res.status === 404) throw new Error('해당 데이터가 없습니다.')
       })
       .then((data) => {
         const face = [face1, face2, face3, face4, face5, face6, face7, face8]
 
-        let usersList = data.users.map(({ id, firstName, lastName, email }) => {
-          return (
-            <UserProfile
-              id={id}
-              firstName={firstName}
-              lastName={lastName}
-              email={email}
-              image={face[id - 1]}
-            ></UserProfile>
+        console.log(data.users)
+        if (!input) {
+          let usersList = data.users.map(
+            ({ id, firstName, lastName, email, university, company, role }) => {
+              return (
+                <UserProfile
+                  id={id}
+                  firstName={firstName}
+                  lastName={lastName}
+                  email={email}
+                  image={face[id % 8]}
+                  university={university}
+                  company={company.name}
+                  role={role}
+                ></UserProfile>
+              )
+            }
           )
+          return usersList
+        }
+
+        const serchResults = data.users.filter((user) => {
+          let firstName = user.firstName.toLowerCase()
+          let lastName = user.lastName.toLowerCase()
+
+          return firstName.includes(input) || lastName.includes(input)
         })
-        // console.log(usersList)
-        setUserList(usersList)
+
+        if (serchResults.length === 0)
+          throw new Error('검색하신 이름의 사용자가 없습니다.')
+
+        const serchUserList = serchResults.map(
+          ({ id, firstName, lastName, email, university, company, role }) => {
+            return (
+              <UserProfile
+                id={id}
+                firstName={firstName}
+                lastName={lastName}
+                email={email}
+                image={face[id % 8]}
+                university={university}
+                company={company.name}
+                role={role}
+              ></UserProfile>
+            )
+          }
+        )
+        console.log(serchUserList)
+        return serchUserList
+      })
+      .then((userList) => {
+        setUserList(userList)
+        setError(null)
       })
       .catch((err) => {
         console.log('Error : ', err)
+        if (err.name === 'AbortError') return
+        setError(err.message)
       })
       .finally(() => {
         setLoading(false)
       })
 
     return () => {
-      // ignor = true
+      abortController.abort
     }
-  }, [])
+  }, [input])
 
   if (loading)
     return (
@@ -62,6 +111,14 @@ export default function ShowProfileBox() {
       </div>
     )
 
+  if (error) {
+    return (
+      <div className="profil-box error">
+        <p className="error">{error}</p>
+        {/* <p className="load">로딩 중...</p> */}
+      </div>
+    )
+  }
   return (
     <div className="profile-box">
       <ul>{...userList}</ul>
@@ -70,13 +127,25 @@ export default function ShowProfileBox() {
 }
 
 // -----------------------------------------------------------------------
-function UserProfile({ id, firstName, lastName, email, image }) {
+function UserProfile({
+  id,
+  firstName,
+  lastName,
+  email,
+  image,
+  university,
+  company,
+  role,
+}) {
   return (
     <li className="user-profile">
       <a href="/" key={id}>
         <img src={image} alt={firstName + ' ' + lastName} />
         <p className="user-name">{firstName + ' ' + lastName}</p>
         <p className="user-email">{email}</p>
+        <p className="user-university tag">{university}</p>
+        <p className="user-company tag">{company}</p>
+        <p className="tag">{role}</p>
       </a>
     </li>
   )
