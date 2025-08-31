@@ -1,17 +1,37 @@
+body {
+  /* background: #ddf4e7; */
+  position: relative;
+  min-width: 500px;
+}
+
 .profile-card-container {
-  background: #ddf4e7;
-  height: max-content;
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  /* background: #ddf4e7; */
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  /* align-items: center; */
+  align-content: space-evenly;
+  justify-content: start;
   h1 {
     font-size: 50px;
-
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 20px;
     margin: 0;
-    margin-inline: 50px;
+    min-width: 100%;
     border-bottom: 1px solid #26667f6b;
+    background: #eeeeeecb;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
   }
   color: #26667f;
 
   div {
+    /* margin-top: 50px; */
     margin-inline: 50px;
     font-size: 20px;
   }

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import randomNum from '../../utils/random'
 import wait from '../../utils/wait'
 // import face1 from '@/face/face-01.svg'
 import {
@@ -18,7 +20,7 @@ export default function ShowProfileBox({ input }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   useEffect(() => {
-    console.log('로딩 완료!')
+    console.log('로딩 시작!')
 
     setLoading(true)
 
@@ -28,7 +30,7 @@ export default function ShowProfileBox({ input }) {
       signal: abortController.signal,
     })
       .then(async (res) => {
-        await wait(0.9)
+        await wait(randomNum())
         if (res.ok) return res.json()
         if (res.status === 404) throw new Error('해당 데이터가 없습니다.')
       })
@@ -60,7 +62,10 @@ export default function ShowProfileBox({ input }) {
           let firstName = user.firstName.toLowerCase()
           let lastName = user.lastName.toLowerCase()
 
-          return firstName.includes(input) || lastName.includes(input)
+          return (
+            firstName.includes(input.toLowerCase()) ||
+            lastName.includes(input.toLowerCase())
+          )
         })
 
         if (serchResults.length === 0)
@@ -90,8 +95,8 @@ export default function ShowProfileBox({ input }) {
         setError(null)
       })
       .catch((err) => {
-        console.log('Error : ', err)
         if (err.name === 'AbortError') return
+        console.log('Error : ', err)
         setError(err.message)
       })
       .finally(() => {
@@ -99,7 +104,7 @@ export default function ShowProfileBox({ input }) {
       })
 
     return () => {
-      abortController.abort
+      abortController.abort()
     }
   }, [input])
 
@@ -127,7 +132,7 @@ export default function ShowProfileBox({ input }) {
 }
 
 // -----------------------------------------------------------------------
-function UserProfile({
+export function UserProfile({
   id,
   firstName,
   lastName,
@@ -139,14 +144,14 @@ function UserProfile({
 }) {
   return (
     <li className="user-profile">
-      <a href="/" key={id}>
+      <Link to={`/user/${id}`} key={id} title="moer show">
         <img src={image} alt={firstName + ' ' + lastName} />
         <p className="user-name">{firstName + ' ' + lastName}</p>
         <p className="user-email">{email}</p>
         <p className="user-university tag">{university}</p>
         <p className="user-company tag">{company}</p>
         <p className="tag">{role}</p>
-      </a>
+      </Link>
     </li>
   )
 }

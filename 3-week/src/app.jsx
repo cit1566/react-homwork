@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import UserForm from './components/form/form'
+import UserDetail from './components/user-detail/user-detail'
 import ShowProfileBox from './components/user/user-profile'
 // import RandomCountUp from './demo/app'
 
@@ -9,7 +11,15 @@ export default function App() {
   return (
     <section className="profile-card-container">
       <h1>Profil Card</h1>
-      <Container></Container>
+      <Router>
+        <Routes>
+          {/* 홈: 검색 + 리스트 */}
+          <Route path="/" element={<Container />} />
+
+          {/* 유저 상세 페이지 */}
+          <Route path="/user/:id" element={<UserDetail />} />
+        </Routes>
+      </Router>
     </section>
   )
 }
